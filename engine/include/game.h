@@ -22,7 +22,6 @@ namespace Chess{
 		ChessGame();
 		ChessGame(const char* charBoard);
 		Piece* getPieceAt(Position pos);
-		const std::string step(Position *origin, Position *destiny);
 	};
 
 };//namespace Chess

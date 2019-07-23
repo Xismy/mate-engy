@@ -11,7 +11,7 @@ using namespace Chess;
 using namespace std;
 
 /**
- * Constructor. Creates a ChessGame with a standard chess game
+ * Creates a ChessGame with a standard chess game
  * initial positions.
  */
 Chess::ChessGame::ChessGame(){
@@ -29,7 +29,7 @@ Chess::ChessGame::ChessGame(){
 }
 
 /**
- * Constructor. Creates a ChessGame object from an 8x8 char array.
+ * Creates a ChessGame object from an 8x8 char array.
  * @param pCharBoard Char array representing game pieces. Each cell is represented by a character,
  * using algebraic notation. Upper case for white pieces, lower case for black ones.
  */
@@ -62,8 +62,4 @@ void Chess::ChessGame::setBoard(const char* pCharBoard){
  */
 Piece* Chess::ChessGame::getPieceAt(Position pos) {
 	return board[pos.row][pos.column];
-}
-
-const std::string Chess::ChessGame::step(Position* origin, Position* destiny) {
-	return "hola";
 }
