@@ -33,8 +33,8 @@ Chess::ChessGame::ChessGame(){
  * @param pCharBoard Char array representing game pieces. Each cell is represented by a character,
  * using algebraic notation. Upper case for white pieces, lower case for black ones.
  */
-Chess::ChessGame::ChessGame(const char* pCharBoard){
-	this->setBoard(pCharBoard);
+Chess::ChessGame::ChessGame(const char* pCharBoard, bool crlf){
+	this->setBoard(pCharBoard, crlf);
 }
 
 /**
@@ -42,13 +42,12 @@ Chess::ChessGame::ChessGame(const char* pCharBoard){
  * @param pCharBoard Char array representing game pieces. Each cell is represented by a character,
  * using algebraic notation. Upper case for white pieces, lower case for black ones.
  */
-void Chess::ChessGame::setBoard(const char* pCharBoard){
-	char (*charBoard)[8][8] = (char (*)[8][8])&pCharBoard;
+void Chess::ChessGame::setBoard(const char* pCharBoard, bool crlf){
 	char piece;
 
 	for(int row=0; row<8; row++){
 		for(int column=0; column<8; column++){
-			piece = *charBoard[row][column];
+			piece = pCharBoard[(7-row)*(crlf?9:8)+column];
 			Team team = tolower(piece)==piece? BLACK:WHITE;
 			this->board[row][column] = Piece::createPiece(piece, team, Position(row, column), this);
 		}

@@ -16,11 +16,11 @@ namespace Chess{
 		Piece* board[8][8];
 		std::vector<Piece*> whites;
 		std::vector<Piece*> blacks;
-		void setBoard(const char* charBoard);
+		void setBoard(const char* charBoard, bool crlf = false);
 
 	public:
 		ChessGame();
-		ChessGame(const char* charBoard);
+		ChessGame(const char* charBoard, bool crlf = false);
 		Piece* getPieceAt(Position pos);
 	};
 
