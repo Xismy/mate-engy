@@ -73,12 +73,18 @@ namespace Chess{
 			this->row = row;
 			this->column = column;
 
-			if(row>7 || column>7)
-				throw new InvalidPositionException();
+
 		};
 
 		Position operator+(Move move){
-			return {this->row+move.dRow, this->column+move.dColumn};
+			unsigned int row = this->row+move.dRow;
+			unsigned int column = this->column+move.dColumn;
+			if(row>7 || column>7){
+				row = this->row;
+				column = this->column;
+			}
+
+			return {row, column};
 		}
 
 		bool operator==(Position pos){
