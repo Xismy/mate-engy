@@ -91,6 +91,12 @@ namespace Chess{
 			return this->row==pos.row && this->column==pos.column;
 		}
 
+		std::string str(){
+			std::stringstream stream;
+			stream << "(" << this->row << ", " << this->column << ")";
+			return stream.str();
+		}
+
 	};
 
 	/**
